@@ -16,6 +16,7 @@ export class AppComponent {
     const config = {
       apiKey: "AIzaSyApnMvwlnFkHBKPi3FjNb3QU1a4vvM9uhw",
       authDomain: "angularbibli.firebaseapp.com",
+      databaseURL: 'https://angularbibli-default-rtdb.europe-west1.firebasedatabase.app/',
       projectId: "angularbibli",
       storageBucket: "angularbibli.appspot.com",
       messagingSenderId: "683572639147",
