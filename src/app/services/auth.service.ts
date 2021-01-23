@@ -11,11 +11,11 @@ export class AuthService {
   constructor() { }
 
   createNewUser(email: string, password: string) {
-    return new Promise<void>(
+    return new Promise(
       (resolve, reject) => {
         firebase.default.auth().createUserWithEmailAndPassword(email, password).then(
           () => {
-            resolve();
+            resolve(console.log('user créer'));
           },
           (error) => {
             reject(error);
@@ -26,11 +26,11 @@ export class AuthService {
   }
 
   signInUser(email: string, password: string) {
-    return new Promise<void>(
+    return new Promise(
       (resolve, reject) => {
         firebase.default.auth().signInWithEmailAndPassword(email, password).then(
           () => {
-            resolve();
+            resolve(console.log('User connecté'));
           },
           (error) => {
             reject(error);

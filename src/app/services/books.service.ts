@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Book } from '../models/book.model';
 import * as firebase from 'firebase';
-import DataSnapshot = firebase.database.DataSnapshot;
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,7 @@ export class BooksService {
 
   getBooks() {
     firebase.default.database().ref('/books')
-      .on('value', (data: DataSnapshot) => {
+      .on('value', (data) => {
           this.books = data.val() ? data.val() : [];
           this.emitBooks();
         }
@@ -37,7 +36,7 @@ export class BooksService {
     return new Promise(
       (resolve, reject) => {
         firebase.default.database().ref('/books/' + id).once('value').then(
-          (data: DataSnapshot) => {
+          (data) => {
             resolve(data.val());
           }, (error) => {
             reject(error);

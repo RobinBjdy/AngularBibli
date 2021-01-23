@@ -13,11 +13,12 @@ export class BookFormComponent implements OnInit {
 
   bookForm!: FormGroup;
   fileIsUploading = false;
-  fileUrl!: string | unknown;
+  fileUrl: string |unknown;
   fileUploaded = false;
 
   constructor(private formBuilder: FormBuilder, private booksService: BooksService,
     private router: Router) {
+      this.fileUrl = '';
      }
 
   ngOnInit() {
@@ -56,7 +57,7 @@ export class BookFormComponent implements OnInit {
     );
   }
 
-  detectFiles(event: { target: { files: File[]; }; }) {
+  detectFiles(event: any) {
     this.onUploadFile(event.target.files[0]);
   }
 
